@@ -1,4 +1,13 @@
 const Card = (article) => {
+
+  const cardWrapper = document.createElement('div');
+  const cardHeadline = document.createElement('div');
+  const cardAuthor = document.createElement('div');
+  const cardContainer = document.createElement('div');
+  const cardImg = document.createElement('img');
+  const cardAuthorName = document.createElement('span');
+
+  return Card;
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.

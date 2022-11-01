@@ -49,6 +49,8 @@ const Card = (article) => {
 }
 
 const cardAppender = (selector) => {
+  const root = document.querySelector(selector);
+  root.appendChild(Tabs(selector));
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.

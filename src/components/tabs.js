@@ -10,7 +10,7 @@ const Tabs = (topics) => {
     topic.classList.add('tab');
   })
 
-  return Tabs;
+  return tabsWrapper;
 }
   // TASK 3
   // ---------------------
@@ -29,6 +29,8 @@ const Tabs = (topics) => {
 
 
 const tabsAppender = (selector) => {
+  const root = document.querySelector(selector);
+  root.appendChild(Tabs(selector));
   // TASK 4
   // ---------------------
   // Implement this function which takes a css selector as its only argument.

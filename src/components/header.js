@@ -1,23 +1,25 @@
 const Header = (title, date, temp) => {
 
   const headerWrapper = document.createElement('div');
-  const headerDate = document.createElement('span');
-  const headerTitle = document.createElement('h1');
-  const hTemp = document.createElement('span');
+  const hTitle = document.createElement('h1');
+  const hDate= document.createElement('span');
+  const hTemp= document.createElement('span');
 
-  headerWrapper.appendChild(headerDate);
-  headerWrapper.appendChild(headerTitle);
-  headerWrapper.appendChild(hTemp);
 
+  hDate.classList.add('date');
   headerWrapper.classList.add('header');
-  headerDate.classList.add('date');
   hTemp.classList.add('temp');
 
-  headerDate.textContent = date;
-  headerTitle.textContent = title;
-  hTemp.textContent = temp;
+  headerWrapper.appendChild(hTitle);
+  headerWrapper.appendChild(hDate);
+  headerWrapper.appendChild(hTemp);
 
-  return Header;
+  
+  hTitle.textContent = title;
+  hDate.textContent = date;
+  hTemp.textContent = temp;   
+
+  return headerWrapper;
 }
   // TASK 1
   // ---------------------
@@ -33,9 +35,9 @@ const Header = (title, date, temp) => {
   //
 
 const headerAppender = (selector) => {
-  Header();
-  parentChild.appendChild(selector);
-  return headerAppender;
+  const root = document.querySelector(selector);
+  // document.querySelector('selector').appendChild(Header(selector));
+  // return headerAppender;
   // TASK 2
   // ---------------------
   // Implement this function taking a css selector as its only argument.

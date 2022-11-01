@@ -7,6 +7,26 @@ const Card = (article) => {
   const cardImg = document.createElement('img');
   const cardAuthorName = document.createElement('span');
 
+  cardWrapper.appendChild(cardHeadline);
+  cardWrapper.appendChild(cardAuthor);
+  cardAuthor.appendChild(cardContainer);
+  cardContainer.appendChild(cardImg);
+  cardAuthor.appendChild(cardAuthorName);
+
+  cardWrapper.classList.add('card');
+  cardHeadline.classList.add('headline');
+  cardAuthor.classList.add('author');
+  cardContainer.classList.add('img-container');
+  cardImg.src = article.authorPhoto;
+
+  cardAuthorName.textContent = article.authorName;
+  cardHeadline.textContent = article.headline;
+
+  cardImg.addEventListener('click', (e) => {
+    console.log(`${article.headline}`);
+  })
+  // article.forEach(card)
+
   return Card;
   // TASK 5
   // ---------------------

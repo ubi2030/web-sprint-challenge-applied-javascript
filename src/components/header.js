@@ -36,6 +36,8 @@ const Header = (title, date, temp) => {
 
 const headerAppender = (selector) => {
   const root = document.querySelector(selector);
+  root.appendChild(Header(selector));
+
   // document.querySelector('selector').appendChild(Header(selector));
   // return headerAppender;
   // TASK 2

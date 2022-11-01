@@ -1,3 +1,6 @@
+import axios from "axios";
+import { node } from "webpack";
+
 const Card = (article) => {
 
   const cardWrapper = document.createElement('div');
@@ -49,8 +52,27 @@ const Card = (article) => {
 }
 
 const cardAppender = (selector) => {
-  const root = document.querySelector(selector);
-  root.appendChild(Tabs(selector));
+  axios.get(`http://localhost:5001/api/articles/`)
+  .then(resp => {
+    console.log(`success!`,resp.data.articles.bootstrap);
+    for(let i=0; i<resp.data.articles.bootstrap.length; i++){
+      document.querySelector(selector).appendChild(Card(resp.data.articles.bootstrap[i]));
+    }
+    for(let i=0; i<resp.data.articles.javascript.length; i++){
+      document.querySelector(selector).appendChild(Card(resp.data.articles.javascript[i]));
+    }
+    for(let i=0; i<resp.data.articles.technology.length; i++){
+      document.querySelector(selector).appendChild(Card(resp.data.articles.technology[i]));
+    }
+    for(let i=0; i<resp.data.articles.jquery.length; i++){
+      document.querySelector(selector).appendChild(Card(resp.data.articles.jquery[i]));
+    }
+    for(let i=0; i<resp.data.articles.node.length; i++){
+      document.querySelector(selector).appendChild(Card(resp.data.articles.node[i]));
+    }
+    })
+  .catch(err => console.error(err))
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
